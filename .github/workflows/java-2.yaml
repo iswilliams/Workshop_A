@@ -17,6 +17,8 @@ on:
         required: false
         type: boolean
   pull_request: # PR trigger
+    branches:
+      - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -34,9 +36,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: |
           echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
-          echo "Environment: $ENVIRONMENT"
+          echo "Unit Tests?: $TAGS"
         env:
           LEVEL: ${{ inputs.logLevel }}
           TAGS: ${{ inputs.tags }}
-          ENVIRONMENT: ${{ inputs.environment }}
