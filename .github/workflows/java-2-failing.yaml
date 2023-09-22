@@ -1,4 +1,4 @@
-name: Pipeline with PR & manual trigger
+name: Pipeline with PR & manual trigger FORCE FAIL
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   workflow_dispatch: # Manual trigger
