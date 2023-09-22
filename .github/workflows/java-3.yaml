@@ -49,10 +49,10 @@ jobs:
     needs: Checkout
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
+          ref: ${{ github.head_ref }} # checkout the correct branch name
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
@@ -71,6 +71,10 @@ jobs:
     steps:
       - name: Set up Java Build
         run: echo "Setting up..."
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }} # checkout the correct branch name
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
@@ -120,5 +124,10 @@ jobs:
         with:
           java-version: "11"
           distribution: "temurin"
-      - name: Maven Test
-        run: mvn clean build
+      - name: Maven Build
+        run: mvn --batch-mode --update-snapshots package
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: staging
