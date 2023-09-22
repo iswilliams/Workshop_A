@@ -1,11 +1,7 @@
 name: Reusable Pattern
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-  workflow_dispatch:
-  pull_request:
-  push:
-    branches:
-      - main
+  workflow_call:
 jobs:
   Checkout:
     runs-on: ubuntu-latest
