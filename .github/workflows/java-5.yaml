@@ -29,5 +29,5 @@ jobs:
     uses: iswilliams/Workshop_B/.github/workflows/tasks_java_sonarqube.yml@main
 
   Java-Build:
-    needs: Java-Build
+    needs: Java-Sonar
     uses: iswilliams/Workshop_B/.github/workflows/tasks_java_build.yml@main
