@@ -1,0 +1,32 @@
+name: Using Secrets
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  Secrets:
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - shell: bash
+        env:
+          ENV_SUPER_SECRET: ${{ secrets.ENV_SECRET }}
+          REPO_SUPER_SECRET: ${{ secrets.PAT }}
+        run: |
+          echo "Here is an environment secret: $ENV_SUPER_SECRET"
+          echo "Here is an repo secret: $REPO_SUPER_SECRET"
+
+  Vars:
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - shell: bash
+        env:
+          ENV_VAR: ${{ vars.ENV_VAR }}
+          REPO_VAR: ${{ vars.ENVIRONMENT }}
+        run: |
+          echo "Here is an environment variable: $ENV_VAR"
+          echo "Here is an repo variable: $REPO_VAR"
