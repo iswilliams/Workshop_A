@@ -1,4 +1,4 @@
-name: Using Secrets
+name: Passing Parameters to reusable pipeline
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   workflow_dispatch:
