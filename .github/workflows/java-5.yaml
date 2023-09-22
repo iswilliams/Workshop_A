@@ -22,12 +22,12 @@ jobs:
 
   Java-Test:
     needs: Checkout
-    uses: iswilliams/Workshop_B/.github/workflows/tasks/java/test.yml@main
+    uses: iswilliams/Workshop_B/.github/workflows/tasks_java_test.yml@main
 
   Java-Sonar:
     needs: Java-Test
-    uses: iswilliams/Workshop_B/.github/workflows/tasks/java/sonarqube.yml@main
+    uses: iswilliams/Workshop_B/.github/workflows/tasks_java_sonarqube.yml@main
 
   Java-Build:
     needs: Java-Build
-    uses: iswilliams/Workshop_B/.github/workflows/tasks/java/build.yml@main
+    uses: iswilliams/Workshop_B/.github/workflows/tasks_java_build.yml@main
